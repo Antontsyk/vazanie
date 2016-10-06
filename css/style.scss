@@ -1,0 +1,1546 @@
+// ----
+// Sass (v3.3.6)
+// Compass (v)
+// Susy (v)
+// ----  
+@import "susy";
+@import "compass";
+@import "breakpoint";
+@import "_fonts";
+@import "_reset";
+@import "_normalize";
+@import "_slicknav";
+@import "_slickslider";
+//@import url(http://allfont.ru/allfont.css?fonts=open-sans);
+// Susy custom settings 
+$susy: ( columns: 12, container: 1000px, gutters: 1/10, global-box-sizing: border-box, debug: (image: show));
+@include border-box-sizing;
+$color_1: #d52a77;
+$color_2: #87827c;
+$color_2_hover: #615c56;
+$color_3: #acd8d9;
+$color_3_hover: #89c3c5;
+$color_4: #f5f3f2;
+%teni_container {
+    box-shadow: 0 0 11px -3px $color_2;
+}
+
+.color_ping {
+    color: $color_1;
+}
+
+.slicknav_menu {
+    @include breakpoint((max-width: 900px)) {
+        display: block;
+    }
+    display:none;
+}
+
+.LifehackSans-Regular {
+    font-family: 'LifehackSans-Regular';
+    color: $color_2;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background: $color_4;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: $color_4;
+    overflow-x: hidden;
+}
+
+.container {
+    @include container;
+    background: none;
+    position: relative;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato-Regular', Sans-Serif;
+    color: $color_2;
+    font-size: 14px;
+    //transition: all 0.1s linear;
+    &:focus {
+        outline: none;
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+.line_top {
+    width: 104%;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    margin-left: -52%;
+    border-bottom: dotted 3px $color_1;
+}
+
+.top {
+    @include breakpoint((max-width: 950px)) {
+        height: 100px;
+    }
+    @include breakpoint((max-width: 500px)) {
+        height: 150px;
+    }
+    width: 100%;
+    height: 50px;
+    background: url(../images/fon_top.jpg);
+    .span1 {
+        @include breakpoint((max-width: 950px)) {
+            @include span( 1 of 2);
+        }
+        @include breakpoint((max-width: 500px)) {
+            @include span( 1 of 1);
+            text-align: center;
+        }
+        @include span( 3 of 12);
+        .logo_img {
+            @include breakpoint((max-width: 500px)) {
+                margin-left: 5px;
+            }
+            margin: 5px 7px -4px 15px;
+        }
+        .logo_text {
+            font-size: 36px;
+        }
+    }
+    .span2 {
+        @include breakpoint((max-width: 950px)) {
+            @include span( 1 of 1);
+            padding: 0 3%;
+            position: absolute;
+            top: 50px;
+        }
+        @include breakpoint((max-width: 500px)) {
+            top: 100px;
+        }
+        @include span( 7 of 12);
+        .seacrh_input {
+            width: 100%;
+            height: 30px;
+            border: 0;
+            border-radius: 4px;
+            padding-left: 18px;
+            margin: 7px 0 0 0;
+            background: url(../images/search.png) 98% center no-repeat $color_4;
+        }
+    }
+    .span3 {
+        @include breakpoint((max-width: 950px)) {
+            @include span( 1 of 2 last);
+            text-align: right;
+            padding-right: 3%;
+        }
+        @include breakpoint((max-width: 500px)) {
+            @include span( 1 of 1);
+            text-align: center;
+        }
+        @include span( 2 of 12 last);
+        .login_img {
+            margin: 4px 0 -8px 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+        a {
+            text-decoration: none;
+            font-size: 26px;
+            white-space: nowrap;
+            position: relative;
+            &:after {
+                content: '';
+                display: block;
+                width: 9px;
+                height: 7px;
+                position: absolute;
+                right: -15px;
+                top: 10px;
+                background: url(../images/sprite.png) -5px -3px no-repeat;
+            }
+            &:hover {
+                &:after {
+                    background-position: -5px -10px;
+                }
+            }
+        }
+    }
+}
+
+.nav {
+    margin-bottom: 17px;
+    .container {
+        background: #fff;
+        @extend %teni_container;
+    }
+    nav {
+        >ul.menu {
+            @include breakpoint((max-width: 900px)) {
+                display: none;
+            }
+            >li {
+                @include span(1 of 6);
+                &:last-child {
+                    @include last;
+                }
+                a {
+                    padding: 19px 0 11px;
+                    text-align: center;
+                    position: relative;
+                    display: block;
+                    text-decoration: none;
+                    &:hover {
+                        color: $color_1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main_slider {
+    .slider {
+        @extend %teni_container;
+    }
+}
+
+.main_center {
+    .container {
+        @extend %teni_container;
+        padding: 10px 20px 15px;
+    }
+    .baner {
+        width: 100%;
+        height: 56px;
+        margin-bottom: 6px;
+        background: url(../images/baner1.png) 50% 50% no-repeat;
+        background-size: cover;
+        .text {
+            font-size: 30px;
+            padding-top: 9px;
+            text-align: center;
+            color: #fff;
+            a {
+                @extend .LifehackSans-Regular;
+                display: inline-block;
+                text-decoration: none;
+                background: #fff;
+                color: $color_1;
+                text-transform: uppercase;
+                padding: 5px 19px 3px;
+                border-radius: 5px;
+            }
+        }
+    }
+    .text_in {
+        @include breakpoint((max-width: 1000px)) {
+            width: 100%;
+        }
+        @extend %teni_container;
+        background: #fff;
+        padding: 26px 4%;
+        line-height: 19px;
+        position: relative;
+        width: 94%;
+        margin: 0 auto 20px;
+        .line_top {
+            width: 102%;
+            margin-left: -51%;
+        }
+    }
+    .catalog_block {
+        @include breakpoint((max-width: 1000px)) {
+            width: 100%;
+        }
+        width: 900px;
+        margin: 0 auto;
+        .item {
+            &:hover {
+                Box-shadow: 0px 0px 0px 1px $color_1;
+                .in {
+                    color: $color_1;
+                    .text {
+                        span {
+                            color: $color_1;
+                        }
+                    }
+                    .get {
+                        background: $color_1;
+                    }
+                }
+            }
+            .in {
+                position: relative;
+            }
+            .stars {
+                position: absolute;
+                top: 5px;
+                left: 7px;
+                .star {
+                    display: inline-block;
+                    margin-left: 1px;
+                    width: 17px;
+                    height: 16px;
+                    background: url(../images/star.png) no-repeat;
+                }
+            }
+            .likes {
+                display: block;
+                text-decoration: none;
+                position: absolute;
+                top: 7px;
+                right: 7px;
+                width: 22px;
+                height: 15px;
+                background: url(../images/sprite.png) -70px 0px no-repeat;
+                &:hover,
+                &.active {
+                    background-position: -70px -15px;
+                }
+            }
+            @include span(1 of 4);
+            @include breakpoint((max-width: 900px)) {
+                @include span(1 of 3);
+            }
+            @include breakpoint((max-width: 700px)) {
+                @include span(1 of 2);
+            }
+            @include breakpoint((max-width: 500px)) {
+                float: left!important;
+                width: 100%!important;
+            }
+            &:nth-child(4n) {
+                @include span(1 of 4 last);
+                @include breakpoint((max-width: 900px)) {
+                    @include span(1 of 3);
+                }
+                @include breakpoint((max-width: 700px)) {
+                    @include span(1 of 2);
+                }
+            }
+            &:nth-child(3n) {
+                @include breakpoint((max-width: 900px)) {
+                    @include span(1 of 3 last);
+                }
+                @include breakpoint((max-width: 700px)) {
+                    @include span(1 of 2);
+                }
+            }
+            &:nth-child(2n) {
+                @include breakpoint((max-width: 700px)) {
+                    @include span(1 of 2 last);
+                }
+            }
+            @extend %teni_container;
+            margin-top: 7px;
+            background: #fff;
+            position: relative;
+            .img {
+                @include breakpoint((max-width: 500px)) {
+                    height: 300px;
+                }
+                width: 100%;
+                height: 222px;
+                background-size: cover!important;
+                background-position: 50% 50%;
+            }
+            .text {
+                line-height: 20px;
+                padding-left: 10px;
+                margin: 3px 0;
+                span {
+                    white-space: nowrap;
+                }
+            }
+            .get {
+                display: block;
+                width: 95%;
+                margin: 0 auto;
+                text-decoration: none;
+                background: $color_2;
+                color: #fff;
+                border: 0;
+                outline: 0;
+                padding: 9px 0 7px;
+                border-radius: 5px;
+                margin-bottom: 7px;
+                box-shadow: 1px 1px 1px 1px $color_2_hover;
+            }
+            &.free {
+                .get {
+                    background: $color_3;
+                    box-shadow: 1px 1px 1px 1px $color_3_hover;
+                }
+            }
+        }
+    }
+    .but_go {
+        @include breakpoint((max-width: 1000px)) {
+            width: 100%;
+        }
+        width: 94%;
+        margin: 0 auto;
+        height: 60px;
+    }
+    .go_to_catalog {
+        margin: 10px 0;
+        display: block;
+        text-decoration: none;
+        padding-left: 20px;
+        padding-top: 7px;
+        width: 168px;
+        height: 28px;
+        float: right;
+        background: $color_3;
+        color: #fff;
+        position: relative;
+        &:after {
+            content: url(../images/arrow_btn.png);
+            width: 11px;
+            height: 14px;
+            position: absolute;
+            right: 11px;
+            top: 6px;
+        }
+    }
+}
+
+.news {
+    .container {
+        @extend %teni_container;
+        padding-bottom: 30px;
+    }
+    .drop_left_menu {
+        @include breakpoint((max-width: 700px)) {
+            display: block;
+        }
+        @extend %teni_container;
+        display: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        z-index: 99;
+        padding: 13px;
+        text-align: center;
+        position: fixed;
+        top: 30px;
+        left: 0;
+        background: $color_1;
+        color: #fff;
+        &:hover {
+            cursor: pointer;
+        }
+        .line {
+            display: block;
+            width: 1.325em;
+            height: .225em;
+            border-radius: 1px;
+            background-color: #fff;
+            margin-top: .188em;
+        }
+    }
+    .span1 {
+        @include breakpoint((max-width: 700px)) {
+            display: none;
+            @include span(full);
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9;
+            padding: 10px 10px 10px 10px;
+        }
+        @include span(3 of 10);
+        padding: 10px 5px 0 20px;
+        .info_user {
+            @extend %teni_container;
+        }
+        .top {
+            @include breakpoint((max-width: 990px)) {
+                min-height: 180px;
+            }
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            position: relative;
+            min-height: 130px;
+            background: $color_3;
+            .img {
+                @include breakpoint((max-width: 990px)) {
+                    width: 100%;
+                    padding-left: 0;
+                }
+                @include span(5 of 12);
+                padding: 19px 0 0 15px;
+                img {
+                    @include breakpoint((max-width: 990px)) {
+                        display: block;
+                        margin: 0 auto;
+                    }
+                    margin: 0 auto;
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 50%;
+                    border: solid 3px #fff;
+                }
+            }
+            .text {
+                @include breakpoint((max-width: 990px)) {
+                    width: 100%;
+                    text-align: center;
+                    padding-top: 10px;
+                }
+                @include span(7 of 12 last);
+                padding-top: 50px;
+                .name {
+                    font-size: 26px;
+                    @extend .LifehackSans-Regular;
+                    color: #fff;
+                    white-space: nowrap;
+                }
+                .work {
+                    font-style: italic;
+                    color: #fff;
+                }
+            }
+        }
+        .bottom {
+            ul {
+                li {
+                    a {
+                        background: #fff;
+                        text-decoration: none;
+                        color: $color_2;
+                        width: 100%;
+                        display: block;
+                        padding: 22px 0 25px 20px;
+                        border-bottom: solid 1px #f5f3f2;
+                        &:hover {
+                            color: $color_1;
+                            border-left: solid 4px $color_3;
+                            background: #d5ebec;
+                            padding-left: 16px;
+                        }
+                    }
+                    &.active {
+                        a {
+                            color: $color_1;
+                            border-left: solid 4px $color_3;
+                            background: #d5ebec;
+                            padding-left: 16px;
+                        }
+                    }
+                    &:last-child {
+                        a {
+                            border: 0;
+                            border-bottom-left-radius: 5px;
+                            border-bottom-right-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .span2 {
+        @include breakpoint((max-width: 700px)) {
+            @include span(full);
+            padding: 10px 10px 10px 10px;
+        }
+        @include span(7 of 10 last);
+        padding: 10px 20px 20px 5px;
+        .top_title {
+            position: relative;
+            width: 100%;
+            @extend %teni_container;
+            padding: 15px;
+            background: $color_3;
+            border-radius: 5px;
+            .right_a {
+                margin-top: -18px;
+                float: right;
+                text-align: right;
+                .count {
+                    text-decoration: none;
+                    color: #fff;
+                    &:hover {
+                        color: $color_1;
+                    }
+                }
+            }
+            &.bottom_big {
+                @include breakpoint((max-width: 450px)) {
+                    margin-bottom: 75px;
+                }
+                margin-bottom: 48px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            h1 {
+                @extend .LifehackSans-Regular;
+                margin: 0;
+                font-size: 30px;
+                color: #fff;
+                text-transform: uppercase;
+            }
+            .dop_function {
+                @include breakpoint((max-width: 450px)) {
+                    height: 56px;
+                    bottom: -54px;
+                }
+                @extend %teni_container;
+                height: 28px;
+                width: 100%;
+                position: absolute;
+                bottom: -28px;
+                left: 0;
+                background: #fff;
+                padding: 9px 17px;
+                .left {
+                    @include breakpoint((max-width: 450px)) {
+                        float: none;
+                        text-align: center;
+                        padding: 3px 0 7px 0;
+                    }
+                    float: left;
+                }
+                .right {
+                    @include breakpoint((max-width: 450px)) {
+                        float: none;
+                        text-align: center;
+                    }
+                    float: right;
+                    text-align: right;
+                    .change,
+                    .delete {
+                        display: inline-block;
+                        position: relative;
+                        text-decoration: none;
+                        margin-left: 21px;
+                        &:hover {
+                            color: $color_1;
+                        }
+                        &:after {
+                            content: '';
+                            width: 14px;
+                            height: 14px;
+                            display: block;
+                            position: absolute;
+                            top: -2px;
+                            left: -18px;
+                            background: url(../images/sprite.png) no-repeat;
+                        }
+                    }
+                    .change {
+                        @include breakpoint((max-width: 450px)) {
+                            float: left;
+                        }
+                        &:after {
+                            background-position: -96px 0;
+                        }
+                        &:hover {
+                            &:after {
+                                background-position: -96px -14px;
+                            }
+                        }
+                    }
+                    .delete {
+                        @include breakpoint((max-width: 450px)) {
+                            float: right;
+                        }
+                        &:after {
+                            top: 0;
+                            width: 12px;
+                            height: 12px;
+                            background-position: -112px 0;
+                        }
+                        &:hover {
+                            &:after {
+                                background-position: -112px -12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .block_text {
+            @extend %teni_container;
+            margin-top: 30px;
+            background: #fff;
+            position: relative;
+            padding: 20px 20px 30px;
+            border-radius: 4px;
+            .title {
+                @extend .LifehackSans-Regular;
+                color: $color_1;
+                font-size: 30px;
+                padding-bottom: 9px;
+            }
+            .text {
+                line-height: 18px;
+            }
+            ul {
+                li {
+                    a {
+                        text-decoration: none;
+                        display: block;
+                        padding-top: 10px;
+                        &:hover {
+                            color: $color_1;
+                        }
+                    }
+                }
+            }
+        }
+        .posts {
+            .item {
+                margin-top: 20px;
+                .span21 {
+                    @include breakpoint((max-width: 370px)) {
+                        @include span(full);
+                    }
+                    @include span(1 of 3);
+                    overflow: hidden;
+                    img {
+                        display: block;
+                        margin: 0 auto;
+                        width: 100%;
+                        border: solid 1px #fff;
+                    }
+                }
+                .span22 {
+                    @include breakpoint((max-width: 370px)) {
+                        @include span(full);
+                    }
+                    @include span(2 of 3 last);
+                    .text {
+                        @extend %teni_container;
+                        border-radius: 4px;
+                        background: #fff;
+                        position: relative;
+                        padding: 60px 20px 35px;
+                        .date {
+                            width: 107px;
+                            padding: 7px 0;
+                            text-align: center;
+                            border-radius: 2px;
+                            position: absolute;
+                            top: 20px;
+                            left: -5px;
+                            padding: 5px;
+                            color: #fff;
+                            background: $color_3;
+                        }
+                        .title {
+                            display: block;
+                            text-decoration: none;
+                            color: $color_1;
+                            font-weight: bold;
+                            font-size: 18px;
+                            padding-bottom: 7px;
+                        }
+                        p {
+                            line-height: 19px;
+                        }
+                        .go_to_post {
+                            text-decoration: none;
+                            position: absolute;
+                            right: 10px;
+                            bottom: 13px;
+                            font-size: 12px;
+                            &:hover {
+                                color: $color_1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .my_shemi {
+            .item {
+                &:hover {
+                    Box-shadow: 0px 0px 0px 1px $color_1;
+                    .in {
+                        color: $color_1;
+                        .text {
+                            span {
+                                color: $color_1;
+                            }
+                        }
+                        .get {
+                            background: $color_1;
+                        }
+                    }
+                }
+                .in {
+                    position: relative;
+                }
+                .plus {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    margin-left: -49%;
+                    width: 98%;
+                    height: 100%;
+                    background: #fff;
+                    z-index: 2;
+                    .pl {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 60px;
+                        height: 60px;
+                        margin-left: -30px;
+                        margin-top: -30px;
+                        background: url(../images/sprite.png) 0 -242px no-repeat;
+                        .text_p {
+                            width: 12em;
+                            text-align: center;
+                            white-space: nowrap;
+                            position: absolute;
+                            bottom: -20px;
+                            left: 50%;
+                            margin-left: -6em;
+                        }
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        .pl {
+                            background-position: 0 -302px;
+                            .text_p {
+                                color: $color_1;
+                            }
+                        }
+                    }
+                }
+                .stars {
+                    position: absolute;
+                    top: 5px;
+                    left: 7px;
+                    .star {
+                        display: inline-block;
+                        margin-left: 1px;
+                        width: 17px;
+                        height: 16px;
+                        background: url(../images/star.png) no-repeat;
+                    }
+                }
+                .likes {
+                    display: block;
+                    text-decoration: none;
+                    position: absolute;
+                    top: 7px;
+                    right: 7px;
+                    width: 22px;
+                    height: 15px;
+                    background: url(../images/sprite.png) -70px 0px no-repeat;
+                    &:hover,
+                    &.active {
+                        background-position: -70px -15px;
+                    }
+                }
+                @include span(1 of 3);
+                @include breakpoint((max-width: 900px)) {
+                    @include span(1 of 2);
+                }
+                @include breakpoint((max-width: 500px)) {
+                    float: left!important;
+                    width: 100%!important;
+                }
+                &:nth-child(3n) {
+                    @include span(1 of 3 last);
+                    @include breakpoint((max-width: 900px)) {
+                        @include span(1 of 2);
+                    }
+                }
+                &:nth-child(2n) {
+                    @include breakpoint((max-width: 900px)) {
+                        @include span(1 of 2 last);
+                    }
+                }
+                @extend %teni_container;
+                margin-top: 7px;
+                background: #fff;
+                position: relative;
+                .img {
+                    @include breakpoint((max-width: 500px)) {
+                        height: 300px;
+                    }
+                    width: 100%;
+                    height: 222px;
+                    background-size: cover!important;
+                    background-position: 50% 50%;
+                }
+                .text {
+                    line-height: 20px;
+                    padding-left: 10px;
+                    margin: 8px 0;
+                    span {
+                        white-space: nowrap;
+                    }
+                }
+                .get {
+                    text-align: center;
+                    display: block;
+                    width: 95%;
+                    margin: 0 auto;
+                    text-decoration: none;
+                    background: $color_2;
+                    color: #fff;
+                    border: 0;
+                    outline: 0;
+                    padding: 9px 0 7px;
+                    border-radius: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 7px;
+                    box-shadow: 1px 1px 1px 1px $color_2_hover;
+                }
+                &.free {
+                    .get {
+                        background: $color_3;
+                        box-shadow: 1px 1px 1px 1px $color_3_hover;
+                    }
+                }
+            }
+        }
+        .my_detal {
+            .item {
+                &:hover {
+                    Box-shadow: 0px 0px 0px 1px $color_3;
+                    .in {
+                        color: $color_1;
+                        .text {
+                            span {
+                                color: $color_1;
+                            }
+                        }
+                        .get {
+                            background: $color_1;
+                        }
+                    }
+                }
+                .in {
+                    position: relative;
+                }
+                .plus {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    margin-left: -49%;
+                    width: 98%;
+                    height: 100%;
+                    background: #fff;
+                    z-index: 2;
+                    .pl {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 60px;
+                        height: 60px;
+                        margin-left: -30px;
+                        margin-top: -30px;
+                        background: url(../images/sprite.png) 0 -242px no-repeat;
+                        &.like {
+                            width: 109px;
+                            height: 46px;
+                            margin-left: -55px;
+                            background-position: 0 -148px;
+                        }
+                        .text_p {
+                            width: 12em;
+                            text-align: center;
+                            white-space: nowrap;
+                            position: absolute;
+                            bottom: -30px;
+                            left: 50%;
+                            margin-left: -6em;
+                        }
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        .pl {
+                            background-position: 0 -302px;
+                            &.like {
+                                background-position: 0 -194px;
+                                .text_p {
+                                    color: $color_3;
+                                }
+                            }
+                            .text_p {
+                                color: $color_1;
+                            }
+                        }
+                    }
+                }
+                @include span(1 of 3);
+                @include breakpoint((max-width: 900px)) {
+                    @include span(1 of 2);
+                }
+                @include breakpoint((max-width: 500px)) {
+                    float: left!important;
+                    width: 100%!important;
+                }
+                &:nth-child(3n) {
+                    @include span(1 of 3 last);
+                    @include breakpoint((max-width: 900px)) {
+                        @include span(1 of 2);
+                    }
+                }
+                &:nth-child(2n) {
+                    @include breakpoint((max-width: 900px)) {
+                        @include span(1 of 2 last);
+                    }
+                }
+                @extend %teni_container;
+                margin-top: 7px;
+                background: #fff;
+                position: relative;
+                .img {
+                    @include breakpoint((max-width: 500px)) {
+                        height: 300px;
+                    }
+                    width: 100%;
+                    height: 222px;
+                    background-size: cover!important;
+                    background-position: 50% 50%;
+                }
+            }
+        }
+    }
+}
+
+.cabinet {
+    padding: 30px 0;
+    .span221 {
+        @include breakpoint((max-width: 600px)) {
+            @include span(full);
+            padding-right: 0;
+        }
+        @include span(2 of 12);
+        padding-right: 5px;
+        .slider_vertical {
+            @include breakpoint((max-width: 600px)) {
+                padding: 10px 0;
+                margin-bottom: 40px;
+            }
+            .slick-prev,
+            .slick-next {
+                @include breakpoint((max-width: 600px)) {
+                    display: none;
+                }
+            }
+            position: relative;
+            margin: 15px 0;
+            img {
+                @include breakpoint((max-width: 600px)) {
+                    margin: 0 auto;
+                }
+                @extend %teni_container;
+                border-radius: 4px;
+                width: 85%;
+                margin: 2px 0;
+            }
+        }
+    }
+    .span222 {
+        @include breakpoint((max-width: 600px)) {
+            @include span(full);
+        }
+        padding: 0 5px;
+        @include span(4 of 12);
+        img {
+            @extend %teni_container;
+            width: 100%;
+            border-radius: 2px;
+            border: solid 2px #fff;
+        }
+    }
+    .span223 {
+        @include breakpoint((max-width: 600px)) {
+            @include span(full);
+        }
+        @include span(6 of 12 last);
+        padding: 0 5px;
+        .info_tovar {
+            @extend %teni_container;
+            min-height: 215px;
+            border-radius: 2px;
+            position: relative;
+            padding: 11px 13px;
+            background: #fff;
+            .line_top {
+                top: 40px;
+            }
+            .title {
+                @extend .LifehackSans-Regular;
+                color: $color_1;
+                font-size: 30px;
+            }
+            .text {
+                padding-top: 20px;
+                span {
+                    line-height: 19px;
+                    display: block;
+                }
+            }
+        }
+        .buy_sh {
+            font-size: 18px;
+            width: 100%;
+            margin-top: 14px;
+            margin-bottom: 7px;
+            text-decoration: none;
+            outline: none;
+            height: 38px;
+            border-radius: 4px;
+            background: $color_2;
+            color: #fff;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .favor_sh {
+            font-size: 16px;
+            width: 100%;
+            background: #fff;
+            text-decoration: none;
+            outline: none;
+            height: 38px;
+            border-radius: 4px;
+            border: solid 1px $color_2;
+            &:hover {
+                cursor: pointer;
+            }
+            span {
+                position: relative;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.fz16 {
+    font-size: 16px;
+}
+
+.slider_row {
+    padding: 0 33px;
+    margin-top: 10px;
+    .item {
+        padding: 5px;
+        img {
+            display: block;
+            width: 95%;
+            margin: 0 auto;
+            border-radius: 4px;
+            border: solid 3px #fff;
+        }
+        .text {
+            padding: 7px 0;
+            line-height: 18px;
+        }
+    }
+}
+
+.text_inf {
+    @extend %teni_container;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    .title {
+        @extend .LifehackSans-Regular;
+        color: #fff;
+        height: 40px;
+        font-size: 30px;
+        background: $color_3;
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+    .text_in {
+        padding: 18px 17px 25px;
+        line-height: 18px;
+    }
+}
+
+footer {
+    min-height: 76px;
+    background: url(../images/fon_top.jpg);
+    .span1 {
+        @include breakpoint((max-width: 780px)) {
+            @include span(1 of 2);
+            padding-top: 75px;
+            padding-bottom: 15px;
+        }
+        @include breakpoint((max-width: 470px)) {
+            width: 100%;
+            text-align: center;
+            padding-right: 0;
+            padding-top: 115px;
+        }
+        @include span(3 of 10);
+        padding: 21px 0 0 3px;
+        .logo_img {
+            @include breakpoint((max-width: 470px)) {
+                margin-left: 0;
+            }
+            margin: 5px 7px -4px 15px;
+        }
+        .logo_text {
+            font-size: 36px;
+        }
+    }
+    .span2 {
+        @include breakpoint((max-width: 780px)) {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            clear: both;
+        }
+        padding-top: 6px;
+        @include span(5 of 10);
+        text-align: center;
+        .text {
+            text-align: center;
+            padding-bottom: 9px;
+        }
+        input {
+            @include breakpoint((max-width: 470px)) {
+                width: 95%;
+            }
+            width: 237px;
+            height: 33px;
+            border-radius: 3px;
+            padding-left: 8px;
+            border: 0;
+            outline: none;
+        }
+        button {
+            @include breakpoint((max-width: 470px)) {
+                margin-left: 0;
+                margin-top: 7px;
+            }
+            margin-left: -5px;
+            border: 0;
+            outline: none;
+            border-radius: 3px;
+            height: 33px;
+            color: #fff;
+            padding: 0 25px;
+            background: $color_1;
+        }
+    }
+    .span3 {
+        @include breakpoint((max-width: 780px)) {
+            @include span(1 of 2 last);
+            padding-top: 87px;
+            padding-bottom: 15px;
+        }
+        @include breakpoint((max-width: 470px)) {
+            width: 100%;
+            text-align: center;
+            padding-right: 0;
+            padding-top: 0;
+        }
+        @include span(2 of 10 last);
+        padding: 35px 20px 0 0;
+        text-align: right;
+    }
+}
+
+.soc_icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+    background: url(../images/sprite.png);
+    &.vk {
+        background-position: 158px -98px;
+        &:hover {
+            background-position: 158px -122px;
+        }
+    }
+    &.fb {
+        background-position: 184px -98px;
+        &:hover {
+            background-position: 184px -122px;
+        }
+    }
+    &.inst {
+        background-position: 132px -98px;
+        &:hover {
+            background-position: 132px -122px;
+        }
+    }
+    &.pi {
+        background-position: 106px -98px;
+        &:hover {
+            background-position: 106px -122px;
+        }
+    }
+}
+
+.block_popup {
+    display: none;
+    .popup {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(188, 184, 181, 0.6);
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .add_sh {
+            @include breakpoint((max-width: 800px)) {
+                width: 80%;
+            }
+            @include breakpoint((max-width: 400px)) {
+                width: 90%;
+            }
+            @extend %teni_container;
+            position: relative;
+            width: 50%;
+            padding: 17px 15px 25px;
+            border-radius: 4px;
+            background: #fff;
+            .close {
+                position: absolute;
+                right: 22px;
+                top: 18px;
+                width: 12px;
+                height: 12px;
+                background: url(../images/sprite.png) -112px 0 no-repeat;
+                &:hover {
+                    cursor: pointer;
+                    background-position: -112px -12px;
+                }
+            }
+            .title {
+                color: $color_1;
+                font-size: 20px;
+                padding: 0 0 15px 5px;
+                border-bottom: dotted 3px $color_1;
+            }
+            .title_2 {
+                font-size: 16px;
+                padding: 17px 0 8px;
+            }
+            input {
+                height: 38px;
+                border-radius: 4px;
+                padding-left: 15px;
+            }
+            input.name {
+                width: 100%;
+                border: solid 1px $color_2;
+            }
+            input[type=file] {
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .file {
+                position: relative;
+                width: 100%;
+                border: solid 1px $color_2;
+                height: 38px;
+                border-radius: 4px;
+                padding-left: 15px;
+                &:hover {
+                    cursor: pointer;
+                }
+                .file_text {
+                    height: 38px;
+                    display: inline-block;
+                    margin-left: 100px;
+                    padding-top: 10px;
+                }
+                button {
+                    padding: 0 20px;
+                    position: absolute;
+                    left: -1px;
+                    top: -1px;
+                    border: 0;
+                    outline: none;
+                    float: left;
+                    height: 38px;
+                    border-radius: 4px;
+                    background: $color_2;
+                    color: #fff;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            .submit {
+                float: right;
+                margin-top: 20px;
+                padding-top: 14px;
+                padding-bottom: 13px;
+                width: 160px;
+                text-decoration: none;
+                outline: none;
+                border-radius: 4px;
+                background: $color_1;
+                color: #fff;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.block_popup_2 {
+    display: none;
+    .popup {
+        overflow-y: scroll;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(188, 184, 181, 0.6);
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .add_sh {
+            @include breakpoint((max-width: 800px)) {
+                width: 95%;
+            }
+            @include breakpoint((max-width: 400px)) {
+                width: 97%;
+            }
+            @extend %teni_container;
+            position: relative;
+            width: 80%;
+            padding: 17px 15px 50px 30px;
+            border-radius: 4px;
+            background: #fff;
+            .span1 {
+                @include breakpoint((max-width: 670px)) {
+                    @include span(full);
+                }
+                @include span(2 of 3)
+            }
+            .span2 {
+                @include breakpoint((max-width: 670px)) {
+                    @include span(full);
+                }
+                @include span(1 of 3 last);
+                padding-top: 100px;
+            }
+            .mass_info {
+                width: 100%;
+                border-radius: 4px;
+                tr {
+                    td {
+                        height: 34px;
+                        border: solid 1px $color_2;
+                        text-align: center;
+                        vertical-align: middle;
+                        position: relative;
+                        input[type=text] {
+                            border: 0;
+                            width: 97%;
+                            height: 97%;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            padding-left: 15px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+            .close {
+                position: absolute;
+                right: 22px;
+                top: 18px;
+                width: 12px;
+                height: 12px;
+                background: url(../images/sprite.png) -112px 0 no-repeat;
+                &:hover {
+                    cursor: pointer;
+                    background-position: -112px -12px;
+                }
+            }
+            .title {
+                color: $color_1;
+                font-size: 20px;
+                padding: 0 0 15px 5px;
+                border-bottom: dotted 3px $color_1;
+            }
+            .title_2 {
+                font-size: 16px;
+                padding: 17px 0 8px;
+            }
+            input {
+                height: 38px;
+                border-radius: 4px;
+                padding-left: 15px;
+            }
+            input.name {
+                width: 100%;
+                border: solid 1px $color_2;
+            }
+            .submit {
+                @include breakpoint((max-width: 670px)) {
+                    display: block;
+                    margin: 0 auto;
+                    margin-top: 5px;
+                }
+                border: 0;
+                margin-top: 20px;
+                padding-top: 14px;
+                padding-bottom: 13px;
+                width: 160px;
+                text-decoration: none;
+                outline: none;
+                border-radius: 4px;
+                background-color: $color_1;
+                color: #fff;
+                &:hover {
+                    cursor: pointer;
+                }
+                span {
+                    position: relative;
+                    color: #fff;
+                }
+                &.add {
+                    @include breakpoint((max-width: 670px)) {
+                        margin-bottom: 5px;
+                    }
+                    background-color: $color_2;
+                    margin-bottom: 10px;
+                }
+                &.delete {
+                    @include breakpoint((max-width: 670px)) {
+                        margin-bottom: 5px;
+                    }
+                    background-color: $color_3;
+                    margin-bottom: 20px;
+                }
+                &.create {
+                    @include breakpoint((max-width: 670px)) {
+                        margin-top: 0;
+                    }
+                    margin-top: 155px;
+                }
+            }
+        }
+    }
+}
